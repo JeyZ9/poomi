@@ -56,7 +56,7 @@ class Users extends CI_Controller
 		$this->um->deleteUser($id);
 		if ($this->db->affected_rows() > 0)
 		{
-			echo '{"Sucess":{"text":"Delete user success"}}';
+			echo '{"Success":{"text":"Delete user success"}}';
 		}
 		else
 		{
