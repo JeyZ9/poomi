@@ -28,7 +28,7 @@ class Users extends CI_Controller
 			'user_password' => $input['user_password'],
 			'user_type' => $input['user_type']
 		);
-		$data['query'] = $this->um->addUser($user_data);
+		$data['query'] = $this->um->create($user_data);
 		if($this->db->affected_rows() > 0){
 			echo '{"Success":{"text":"Added user success"}}';
 		}else{
@@ -44,7 +44,7 @@ class Users extends CI_Controller
 			'user_password' => $input['user_password'],
 			'user_type' => $input['user_type']
 		);
-		$this->um->updateUser($id, $user_data);
+		$this->um->update($id, $user_data);
 		if($this->db->affected_rows() > 0){
 			echo '{"Success":{"text":"Update user success"}}';
 		}else{
@@ -53,7 +53,7 @@ class Users extends CI_Controller
 	}
 
 	public function deleteUser($id){
-		$this->um->deleteUser($id);
+		$this->um->delete($id);
 		if ($this->db->affected_rows() > 0)
 		{
 			echo '{"Success":{"text":"Delete user success"}}';

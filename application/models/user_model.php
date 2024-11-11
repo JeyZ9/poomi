@@ -23,7 +23,7 @@ class User_model extends \CI_Model
 		return $result;
 	}
 
-	public function addUser($user_data) {
+	public function create($user_data) {
 		$this->db->insert('tbl_user', $user_data);
 
 		if ($this->db->affected_rows() > 0) {
@@ -33,14 +33,14 @@ class User_model extends \CI_Model
 		}
 	}
 
-	public function updateUser($id, $user_data) {
+	public function update($id, $user_data) {
 		$this->db->where('user_id', $id);
 		$this->db->update('tbl_user', $user_data);
 
 		return $this->db->affected_rows() > 0;
 	}
 
-	public function deleteUser($id){
+	public function delete($id){
 		$this->db->where('user_id', $id);
 		$this->db->delete('tbl_user');
 	}
